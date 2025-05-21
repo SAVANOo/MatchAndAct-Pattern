@@ -16,9 +16,7 @@ public class MatchAndAct {
 
     public void run(Context context) {
         for (Rule rule : ruleList) {
-            if (rule.match(context)) {
-                rule.act(context);
-            }
+            rule.process(context);
         }
     }
 }
