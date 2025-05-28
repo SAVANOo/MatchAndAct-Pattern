@@ -1,8 +1,13 @@
 package com.matchandactpattern.ruleengine;
 
-public interface Rule {
+public abstract class Rule {
+    public final void process(Context context) {
+        if (!match(context)) return;
 
-    public Boolean match(Context context);
+        act(context);
+    }
 
-    public void act(Context context);
+    protected abstract Boolean match(Context context);
+
+    protected abstract void act(Context context);
 }
